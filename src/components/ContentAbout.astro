@@ -1,95 +1,103 @@
 ---
 import { Code } from 'astro:components';
 
-const code = `interface Developer {
-    name: string;
-    skills: string[];
-    interests: string[];
-};
+const code = `# --- Profile & System Architecture ---
+from dataclasses import dataclass
+from typing import List, Dict, Union
 
-interface TechStack {
-    devOps: string[];
-    backend: string[];
-   frontend: string[];
-};
+@dataclass
+class Engineer:
+    name: str
+    role: str
+    education: str
+    status: str = "Building production LLM systems"
 
-type ContactType = 'github' | 'twitter' | 'linkedIn' | 'xing' | 'email';
-
-const techStack: TechStack = {
-    devOps: [
-        'GitLab',
-        'GitHub',
-        'Cloudflare',
-        'Docker'
+# Core technology stack & expertise
+stack: Dict[str, List[str]] = {
+    "languages": ["Python", "SQL", "TypeScript"],
+    "gen_ai": [
+        "LangChain",
+        "LangGraph",
+        "RAG Pipelines",
+        "Prompt Engineering",
+        "Chroma",
+        "FAISS",
+        "OpenAI",
+        "Gemini",
+        "Mistral",
+        "Claude",
+        "LiteLLM",
+        "vLLM",
+        "n8n",
+        "Agentic Workflows"
     ],
-    frontend: [
-        'Angular',
-        'JavaScript',
-        'TypeScript',
-        'TailwindCSS',
-        'PrimeNG',
-        'Astro',
-        'Ionic',
-        'Stencil',
-        'Capacitor',
-        'SCSS',
-        'Markdown',
-        'WordPress'
+    "backend_infra": [
+        "FastAPI",
+        "PostgreSQL",
+        "ERPNext",
+        "REST APIs",
+        "Docker",
+        "Neo-Cloud",
+        "RunPod GPU"
     ],
-    backend: [
-        'Supabase',
-        'Node.js',
-        'Bun',
-        'Deno',
-        'PostgreSQL',
-        'MySQL',
-        'S3 Storage',
-        'Resend'
-    ]
-};
+    "tools": ["Git", "Jira", "Figma", "Notion", "Zapier"]
+}
 
-// Developer profile
-const me: Developer = {
-    name: 'Dejan Vi.',
-    skills: [
-        ...techStack.devOps,
-        ...techStack.backend,
-        ...techStack.frontend
-    ],
-    interests: [
-        'Open Source',
-        'Security',
-        'Privacy',
-        'Performance',
-        'Self-Hosting',
-        'Networking'
-    ]
-};
+me = Engineer(
+    name="Jatin",
+    role="Gen AI Engineer",
+    education="B.Tech CSE, Chandigarh Group of Colleges (2021-2025)"
+)
 
-// Contact function
-const contact = (type: ContactType): string => {
-    switch (type) {
-        case 'github':
-            return 'https://github.com/devidevio';
-        case 'twitter':
-            return 'https://x.com/devidev_io';
-        case 'linkedIn':
-            return 'https://www.linkedin.com/in/dejan-vi';
-        case 'xing':
-            return 'https://www.xing.com/profile/Dejan_Vintonjiv';
-        case 'email':
-            return 'hi@devidev.io';
-        default:
-            return 'Send fax.';
+# Professional track record & achievements
+experience: List[Dict[str, Union[str, List[str]]]] = [
+    {
+        "company": "Veritos Infosolution",
+        "title": "Gen AI Engineer - Contract",
+        "period": "Jun 2026 - Present",
+        "highlights": [
+            "Document OCR pipelines with GLM-OCR, PP-DocLayoutV3 and DINOv2",
+            "LLM inference tuned with vLLM + GPU batching for throughput",
+            "Evaluation pipelines scoring OCR against ground-truth datasets"
+        ]
+    },
+    {
+        "company": "WorkableAI",
+        "title": "AI Product Engineer, Founding Team",
+        "period": "May 2025 - Jun 2026",
+        "highlights": [
+            "AI invoice parsing (Gemini -> Mistral fallback): 95%+ accuracy, 500+ invoices in week one",
+            "LLM approval workflow via RAG: approval cycles 4h -> 20min (-92%)",
+            "Production agentic systems on an IIT Kanpur-backed platform",
+            "LangChain / LangGraph pipelines on FastAPI + PostgreSQL"
+        ]
     }
-};
+]
 
+interests: List[str] = [
+    "Agentic Systems",
+    "Retrieval & Evaluation",
+    "Inference Optimization",
+    "Document Intelligence",
+    "Product Thinking"
+]
+
+def contact(kind: str) -> str:
+    """Connect with Jatin across preferred channels."""
+    channels: Dict[str, str] = {
+        "github": "https://github.com/JatinChoudhary1712",
+        "linkedin": "https://www.linkedin.com/in/jatinai",
+        "email": "jatinchoudhary1712@gmail.com",
+        "mobile": "+91-95011-21178"
+    }
+    return channels.get(kind, "Send a carrier pigeon.")
 `;
 ---
 
 <Code
     code={code}
-    lang="js"
+    lang="python"
+    theme="one-dark-pro"
     wrap={true}
 />
 
@@ -98,6 +106,7 @@ const contact = (type: ContactType): string => {
     /* Custom styling for code block line numbers */
     pre.astro-code {
         @apply bg-transparent !important;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
     }
 
     pre.astro-code code {
@@ -108,12 +117,81 @@ const contact = (type: ContactType): string => {
 
     pre.astro-code code .line {
         @apply relative;
+        transition: background-color 0.15s ease;
+    }
+
+    pre.astro-code code .line:hover {
+        background-color: rgba(168, 85, 247, 0.08);
     }
 
     pre.astro-code code .line::before {
         content: counter(step);
         counter-increment: step;
-        @apply text-gray-600 pr-2;
+        @apply text-zinc-600 pr-3 select-none inline-block w-8 text-right;
+    }
+
+    /* Vibrant syntax coloring matching modern high-contrast developer themes */
+    /* Comments: luminous cyan/teal with italic */
+    pre.astro-code span[style*="#5C6370"],
+    pre.astro-code span[style*="#5c6370"],
+    pre.astro-code span[style*="#7F848E"],
+    pre.astro-code span[style*="#7f848e"] {
+        color: #2DD4BF !important; /* Luminous cyan */
+        font-style: italic;
+    }
+
+    /* Keywords (from, import, class, def, return): crimson red */
+    pre.astro-code span[style*="#C678DD"],
+    pre.astro-code span[style*="#c678dd"] {
+        color: #C084FC !important; /* Vivid Purple */
+        font-weight: 600;
+        text-shadow: 0 0 10px rgba(192, 132, 252, 0.25);
+    }
+
+    /* Strings: lush neon emerald green */
+    pre.astro-code span[style*="#98C379"],
+    pre.astro-code span[style*="#98c379"] {
+        color: #34D399 !important; /* Emerald */
+    }
+
+    /* Numbers, percentages & constants: vivid neon orange */
+    pre.astro-code span[style*="#D19A66"],
+    pre.astro-code span[style*="#d19a66"] {
+        color: #FB923C !important; /* Orange */
+        font-weight: 600;
+    }
+
+    /* Functions & method names: electric sky blue */
+    pre.astro-code span[style*="#61AFEF"],
+    pre.astro-code span[style*="#61afef"] {
+        color: #38BDF8 !important; /* Sky Blue */
+        font-weight: 600;
+    }
+
+    /* Types, Classes, Decorators (Engineer, str, List, Dict): bright golden amber */
+    pre.astro-code span[style*="#E5C07B"],
+    pre.astro-code span[style*="#e5c07b"] {
+        color: #FBBF24 !important; /* Golden Amber */
+        font-weight: 600;
+    }
+
+    /* Parameters & named args: neon hot pink */
+    pre.astro-code span[style*="#E06C75"],
+    pre.astro-code span[style*="#e06c75"] {
+        color: #F472B6 !important; /* Pink */
+    }
+
+    /* Operators (=, ->, :, +): electric violet/indigo */
+    pre.astro-code span[style*="#56B6C2"],
+    pre.astro-code span[style*="#56b6c2"] {
+        color: #A78BFA !important; /* Violet */
+        font-weight: 600;
+    }
+
+    /* Punctuation & brackets (brackets, braces, commas, colons): light crisp ice blue */
+    pre.astro-code span[style*="#ABB2BF"],
+    pre.astro-code span[style*="#abb2bf"] {
+        color: #CBD5E1 !important; /* Slate / Ice White */
     }
 
 </style>

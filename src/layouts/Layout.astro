@@ -2,25 +2,25 @@
 import '../styles/global.scss';
 
 // Base domain URL without trailing slash
-const domainBaseURL = 'https://devidev.io';
-const ogImageUrl    = 'https://devidev.io/img/meta.png';
+const domainBaseURL = 'https://jatin.dev';
+const ogImageUrl    = 'https://jatin.dev/img/meta.png';
 
 // Website publisher & region
-const authorPublisher   = 'Dejan Vi.';
-const geoRegion         = 'DE-BY';
+const authorPublisher   = 'Jatin';
+const geoRegion         = 'IN-PB';
 
 // SEO title, description and keywords
-const seoTitle          = 'devi|dev|io | Dejan Vi. | Full Stack Developer';
-const seoDescription    = 'Passionate web developer focused on creating clean, efficient, and scalable web applications with a modern tech stack. Specialized in Angular, TypeScript, and Supabase.';
-const seoKeywords       = 'Full Stack Developer, Dejan Vi, Munich, Papersend, Qivi, TECHPOINT, Angular, Typescript, Supabase';
+const seoTitle          = 'Jatin | AI / Gen AI Engineer';
+const seoDescription    = 'Gen AI engineer building production LLM systems: RAG pipelines, agentic workflows, document intelligence and inference optimization with Python, FastAPI, LangGraph and vLLM.';
+const seoKeywords       = 'AI Engineer, Gen AI Engineer, Jatin, LLM, RAG, LangChain, LangGraph, FastAPI, vLLM, Agentic Workflows, OCR, Python';
 
 // Twitter card data
 const twitter = {
     title:          seoTitle,
     description:    seoDescription,
     image:          ogImageUrl,
-    site:           '@devidev_io',
-    creator:        '@devidev_io'
+    site:           '',
+    creator:        ''
 };
 
 // Open graph data
@@ -31,12 +31,12 @@ const openGraph = {
     image:          ogImageUrl,
     type:           'website',
     locale:         'en_US',
-    siteName:       'devi|dev|io'
+    siteName:       'Jatin'
 };
 
 // Dublin core
 const dublinCore = {
-    title:          'devi|dev|io',
+    title:          'Jatin',
     creator:        authorPublisher,
     publisher:      authorPublisher,
     rights:         authorPublisher,
@@ -68,36 +68,31 @@ const dublinCore = {
 
         <!-- Start: DNS prefetch and preconnect -->
         <!-- <link rel="preload" as="image" href="/img/logo.svg" /> -->
-        <link rel="preconnect" href="https://brain.papersend.io" />
         <!-- End: DNS prefetch and preconnect -->
 
         <!-- Start: Theming and Favicons -->
         <link rel="icon" type="image/svg+xml" crossorigin="anonymous" href="/img/logo.svg" />
         <!-- <link rel="alternate icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
-        <link rel="alternate icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
-        <link rel="icon" type="image/x-icon" href="/img/favicon/favicon.ico">
-        <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
-        <link rel="manifest" href="/img/favicon/site.webmanifest"> -->
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png"> -->
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor"    content="#da532c">
+        <meta name="msapplication-config"       content="/browserconfig.xml">
+        <meta name="theme-color"                content="#ffffff">
         <!-- End: Theming and Favicons -->
 
-        <!-- Start: Misc meta tags -->
-        <link rel="sitemap"                     href="/sitemap-index.xml" />
-        <link rel="canonical"                   href={Astro.url} />
-
-        <meta name="geo.region"                 content={geoRegion}>
-        <meta name="author"                     content={authorPublisher}>
-        <meta name="publisher"                  content={authorPublisher}>
-        <meta name="copyright"                  content={authorPublisher}>
-        <!-- End: Misc meta tags -->
+        <link rel="sitemap" href="/sitemap-index.xml" />
 
         <!-- Start: Facebook open graph -->
-        <meta property="og:title"               content={openGraph.title}>
-        <meta property="og:description"         content={openGraph.description}>
-        <meta property="og:url"                 content={openGraph.url}>
-        <meta property="og:type"                content={openGraph.type}>
-        <meta property="og:image"               content={openGraph.image}>
-        <meta property="og:locale"              content={openGraph.locale}>
-        <meta property="og:site_name"           content={openGraph.siteName}>
+        <meta property="og:title"               content={openGraph.title} />
+        <meta property="og:type"                content={openGraph.type} />
+        <meta property="og:url"                 content={openGraph.url} />
+        <meta property="og:image"               content={openGraph.image} />
+        <meta property="og:locale"              content={openGraph.locale} />
+        <meta property="og:site_name"           content={openGraph.siteName} />
+        <meta property="og:description"         content={openGraph.description} />
         <!-- End: Facebook open graph -->
 
         <!-- Start: Twitter card -->

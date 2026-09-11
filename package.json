@@ -9,9 +9,22 @@
         "astro": "astro"
     },
     "dependencies": {
+        "@astrojs/react": "^6.0.5",
+        "@hugeicons/core-free-icons": "^4.3.2",
+        "@hugeicons/react": "^1.1.10",
+        "@radix-ui/react-hover-card": "^1.1.23",
+        "@types/react": "^19.3.0",
+        "@types/react-dom": "^19.3.0",
         "astro": "^5.4.2",
+        "clsx": "^2.1.1",
+        "framer-motion": "^13.2.0",
+        "lucide-react": "^1.44.0",
+        "qss": "^3.0.0",
+        "react": "^19.3.0",
+        "react-dom": "^19.3.0",
         "shiki": "^3.1.0",
         "swetrix": "^3.5.4",
+        "tailwind-merge": "^3.6.0",
         "tailwindcss": "^3.4.17"
     },
     "devDependencies": {

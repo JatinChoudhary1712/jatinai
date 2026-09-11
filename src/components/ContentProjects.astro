@@ -1,6 +1,7 @@
 ---
 interface Project {
     name: string;
+    stack: string;
     description: string;
     link: {
         url?: string;
@@ -11,43 +12,63 @@ interface Project {
 };
 
 const projects: Project[] = [{
-    name: 'Papersend.io',
-    description: 'Papersend is the free alternative to DocSend for secure document sharing, tracking, and Data Rooms. Customize branding, control access, and protect your documents.',
+    name: 'AI Invoice Management System',
+    stack: 'FastAPI · PostgreSQL · Gemini · Mistral · RAG',
+    description: 'Led 0→1 development of an AI-native invoice automation tool with a multi-model fallback pipeline (Gemini → Mistral). 95%+ extraction accuracy across varied formats, 500+ invoices processed in week one, and ~70% less manual finance processing time.',
     link: {
-        url: 'https://papersend.io/',
+        // TODO: add live URL
+        buttonLabel: 'View Live'
     }
 }, {
-    name: 'Qivi.io',
-    description: 'Qivi is an all-in-one application designed to streamline business operations, enhance productivity, and maximize success. Data security is a priority.',
+    name: 'VeriScript — OCR Intelligence Platform',
+    stack: 'Python · FastAPI · vLLM · Docker · RunPod',
+    description: 'End-to-end document intelligence pipeline turning scanned, handwritten and unstructured PDFs into validated JSON with Vision LLMs on GPU. Two-phase classify-then-OCR architecture cuts LLM calls and per-document cost; async APIs, batch console with retries, RAG knowledge base and a packaged Windows desktop client.',
     link: {
-        url: 'https://qivi.io/'
+        // TODO: add repo URL
+        buttonLabel: 'View on GitHub'
     }
 }, {
-    name: 'TECHPOINT.de',
-    description: 'TECHPOINT is a local IT service provider based in the Starnberg district and the Fünfseenland region, specializing in delivering reliable and modern IT solutions.',
+    name: 'HEFT India — ERP Interface with AI Layer',
+    stack: 'ERPNext · Python · RAG · LLMs · React',
+    description: 'LLM-augmented ERP interface for 250+ field workers, replacing manual lookup with RAG-based natural language querying. Auto-fill for approval workflows cut manual effort 60% and drove ERP adoption from 30% → 100% in three months.',
     link: {
-        url: 'https://techpoint.de/'
+        // TODO: add prototype URL
+        buttonLabel: 'View Prototype'
+    }
+}, {
+    name: 'Agentic Enterprise RAG Assistant',
+    stack: 'FastAPI · LangGraph · GPT-4o · FAISS · BM25 · Tavily',
+    description: 'Agentic RAG assistant that autonomously falls back to Tavily web search when internal documents lack the answer. Hybrid retrieval (FAISS dense + BM25 sparse), PDF ingestion with recursive chunking and page-level citations, every response grounded in retrieved context.',
+    link: {
+        // TODO: add repo URL
+        buttonLabel: 'View on GitHub'
     }
 }];
 ---
 
 <div>
 
-    <!-- <h2 class="text-2xl font-bold text-white mb-4">Latest Projects</h2> -->
-
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
         {projects.map(project =>
 
-            <div class="flex flex-col justify-center items-start border border-gray-700 rounded-lg p-4 bg-black">
+            <div class="flex flex-col justify-between items-start border border-gray-700 rounded-lg p-4 bg-black">
 
-                <h3 class="text-xl font-semibold text-white mb-2">
-                    {project.name}
-                </h3>
+                <div>
 
-                <p class="text-gray-400">
-                    {project.description}
-                </p>
+                    <h3 class="text-xl font-semibold text-white mb-1">
+                        {project.name}
+                    </h3>
+
+                    <p class="text-xs text-primary mb-2">
+                        {project.stack}
+                    </p>
+
+                    <p class="text-gray-400">
+                        {project.description}
+                    </p>
+
+                </div>
 
                 {
                     project.link?.url ?

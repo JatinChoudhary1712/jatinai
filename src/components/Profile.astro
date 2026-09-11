@@ -1,12 +1,14 @@
 ---
 import { Picture } from 'astro:assets';
 import ProfilePicture from '../assets/profile.png';
+import { AwardBadge } from './ui/award-badge';
+import { InteractiveBio } from './InteractiveBio';
+import { AnimatedTechGrid } from './ui/animated-tech-grid';
 
 const profile = {
-    name: 'Dejan Vi.',
-    title: 'Full Stack Developer',
-    location: 'Munich, Germany',
-    description: 'Passionate web developer focused on creating clean, efficient, and scalable web applications with a modern tech stack. Specialized in Angular, TypeScript, and Supabase, delivering responsive and intuitive user interfaces. Even my name includes "dev".'
+    name: 'Jatin',
+    title: 'AI / Gen AI Engineer',
+    location: 'Chandigarh, India',
 };
 ---
 
@@ -43,8 +45,29 @@ const profile = {
 
     </div>
 
-    <p class="text-sm leading-relaxed mt-4 text-gray-400">
-        {profile.description}
-    </p>
+    <InteractiveBio client:load />
+
+    <div class="grid grid-cols-2 gap-2.5 w-full max-w-full">
+        <AwardBadge
+            client:visible
+            type="product-of-the-day"
+            place={1}
+            label="PRODUCT HUNT"
+            customTitle="Product of the Day #1"
+            link="https://www.producthunt.com/"
+            className="block w-full h-auto cursor-pointer"
+        />
+        <AwardBadge
+            client:visible
+            type="product-of-the-day"
+            place={2}
+            label="PRODUCT HUNT"
+            customTitle="Product of the Day #2"
+            link="https://www.producthunt.com/"
+            className="block w-full h-auto cursor-pointer"
+        />
+    </div>
+
+    <AnimatedTechGrid client:visible />
 
 </div>
